@@ -26,6 +26,14 @@ body {
     font-weight: bold;
     text-shadow: 2px 2px 6px #97e4fc
   }
+  #projetos {
+    backdrop-filter: blur(10px);
+    border-style: outset;
+    border-color: #91fdf4;
+    font-weight: bold;
+    color: #141414;
+    text-shadow: 2px 2px 1px #bcf5ff
+  }
   #umpoucosobre h2 {
     backdrop-filter: blur(12px);
     border-style: outset;
