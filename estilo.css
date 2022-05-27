@@ -1,7 +1,13 @@
 * {
   box-sizing: border-box;
 }
-
+#drag_me {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    position: absolute;
+}
 body {
     background: url("fundo.jpg") no-repeat center center;
     background-size: cover;
