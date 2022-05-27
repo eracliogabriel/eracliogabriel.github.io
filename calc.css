@@ -11,7 +11,7 @@
             text-align: center;
         }
         .calculadora{
-            position: absolute;
+           /* position: absolute; */
             background-color: rgba(0, 0, 0, 0.8);
             top: 50%;
             left: 50%;
