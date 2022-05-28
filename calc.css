@@ -1,13 +1,24 @@
-<style>
-
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
+        .fundo{
+            background: linear-gradient(45deg,rgb(5, 15, 110), rgb(107, 169, 240));
+            height: 100vh;
+            color: rgb(16, 169, 196);
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
         .calculadora{
             position: absolute;
             background-color: rgba(0, 0, 0, 0.8);
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            border-radius: 15px;
-            padding: 15px;
+            border-radius: 10px;
+            padding: 5px;
         }
         .botao{
             width: 50px;
@@ -15,21 +26,21 @@
             font-size: 25px;
             cursor: pointer;
             margin: 3px;
-            background-color: rgb(31,31,31);
+            background-color: rgb(5, 6, 7);
             border: none;
-            color: #fff;
+            color: rgb(11, 255, 243);
         }
         .botao:hover{
             background-color: black;
         }
         #resultado{
-            background-color: white;
+            background-color: rgb(236, 236, 236);
             width: 207px;
             height: 30px;
             margin: 5px;
-            font-size: 25px;
-            color: black;
+            font-size: 30px;
+            color: rgb(0, 4, 255);
             text-align: right;
-            padding: 5px;
+            padding: 15px;
         }
     </style>

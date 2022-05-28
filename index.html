@@ -6,14 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#054ed6">
-    <script src="calculadora.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" href="calc.css">
     <link rel="shortcut icon" type="image/png" href="favicon1.ico">
       
     <title>Perfil Eraclio Gabriel</title>
@@ -42,13 +40,12 @@
                             <div id="umpoucosobre" class="panel-body"> 
                                 <h2 class="text-center">Quem sou eu</h2></div>
                                 <p id="textosobre" class="lead text-justify recuo well">
-                                        Olá! Meu nome é Eraclio Gabriel Oliveira Lopes, tenho 25 anos de idade e atualmente trabalho como Operador de Sistema em uma empresa de
-                                        rastreamento de veículos. Sou apaixonado por jogos eletrônicos, gosto de competir e viciado em ter bons resultados.<br>
+                                        Olá, meu nome é Eraclio Gabriel, tenho 25 anos, atualmente trabalhando como Operador de Sistema de
+                                        rastreamento de veículos e busco através desse projeto pessoal testar minhas habilidades e me desenvolver cada vez mais na área de programação. Sou apaixonado por jogos eletrônicos, gosto de competir e viciado em ter bons resultados.<br>
                                         </p>
-                                <p id="textosobre2" class="lead recuo well">  
-                                    Estou cursando o 2º período da graduação em Análise e Desenvolvimento de Sistemas na faculdade Estácio. Formado Desenvolvedor JAVA pela instituição do SENAI.
-                                    Gosto de estar interado com o avanço tecnologico, evolução dos hardwares, softwares e computadores.
-                                    Desde cedo através dos jogos eletrônicos e softwares para computadores despertei a curiosidade em saber como tudo aquilo era produzido e desenvolvido ("Afinal de contas se o programa existe alguém fez... E como foi feito?").
+                                <p id="textosobre2" class="lead well">  
+                                    Estou cursando o 2º período do curso de Análise e Desenvolvimento de Sistemas na faculdade Estácio.<br> Formado Desenvolvedor JAVA pela instituição do SENAI em 2021<br> 
+                                
                                 </p>
                     </div>
                 </div>
@@ -68,6 +65,8 @@
 <hr>
 <hr>
 <h2 id="titulocursos" class="text-center">Cursos e conhecimentos</h2>
+<hr>
+<hr>
 </div>
 <div class="container">
     <div class="row">
@@ -118,126 +117,48 @@
             </div>
         </div>
     </div>
-    </div>
-    
-    <a id="projetos"></a>
+</div>
+<hr>
+<hr>
+<a id="projetos"></a>
 <div class="pricing-header text-center">
-<hr>
-<hr>
     <h2 id="projetos1" class="text-center">Pequenos projetos elaborados</h2>
     </div>  
-    <div class="back">
-    <div id="calcdrag" class="calculadora">
-            <h1>Calculadora</h1>
-            <p id="resultado"></p>
-            <table>
-                <tr>
-                    <td><button class="botao" onclick="clean()">Limpar</button></td>
-                    <td><button class="botao" onclick="back()"><</button></td>
-                    <td><button class="botao" onclick="insert('/')">/</button></td>
-                    <td><button class="botao" onclick="insert('*')">X</button></td>
-                </tr>
-                <tr>
-                    <td><button class="botao" onclick="insert('7')">7</button></td>
-                    <td><button class="botao" onclick="insert('8')">8</button></td>
-                    <td><button class="botao" onclick="insert('9')">9</button></td>
-                    <td><button class="botao" onclick="insert('-')">-</button></td>
-                </tr>
-                <tr>
-                    <td><button class="botao" onclick="insert('4')">4</button></td>
-                    <td><button class="botao" onclick="insert('5')">5</button></td>
-                    <td><button class="botao" onclick="insert('6')">6</button></td>
-                    <td><button class="botao" onclick="insert('+')">+</button></td>
-                </tr>
-                <tr>
-                    <td><button class="botao" onclick="insert('1')">1</button></td>
-                    <td><button class="botao" onclick="insert('2')">2</button></td>
-                    <td><button class="botao" onclick="insert('3')">3</button></td>
-                    <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()">=</button></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')">0</button></td>
-                    <td><button class="botao" onclick="insert('.')">.</button></td>
-                </tr>
-            </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h3 class="text-center">Calculadora Simples</h3></div>
+                        <div class="panel-body"><p class="lead well">Calculadora Simples com opção de arrastar para qualquer canto da página utilizando o mouse. Basta clicar no nome <a href="calculadora.html">Calculadora</a></p><br>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
-
+    <hr>
+    <hr>
 <a id="contatos"></a>
-<div id="textoctt" class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <hr>
-    <hr>
+        <div id="textoctt" class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 
-    <h2 class="text-center">Contatos</h2>
-    <p class="text-center">
-        <a target="_blank" href="https://github.com/eracliogabriel">
-            <button class="btn btn-default"><i class="fab fa-github"></i> GitHub</button>
-        </a>
-        <a target="_blank" href="mailto:lopes.biel@hotmail.com">
-            <button class="btn btn-primary"><i class="glyphicon glyphicon-envelope"></i> E-mail</button>
-        </a>
-        <a target="_blank" href="https://api.whatsapp.com/send?phone=5561999655092&text=Ol%C3%A1!">
-            <button class="btn btn-success"><i class="fab fa-whatsapp"></i> Whatsapp</button>
-        </a>
-    </p>
 
-    </p>
-</div>
-</div>
-<script>
-        function insert(num)
-        {
-            var numero = document.getElementById('resultado').innerHTML;
-            document.getElementById('resultado').innerHTML = numero + num;
-        }
-        function clean()
-        {
-            document.getElementById('resultado').innerHTML = "";
-        }
-        function back()
-        {
-            var resultado = document.getElementById('resultado').innerHTML;
-            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
-        }
-        function calcular()
-        {
-            var resultado = document.getElementById('resultado').innerHTML;
-            if(resultado)
-            {
-                document.getElementById('resultado').innerHTML = eval(resultado);
-            }
-            else
-            {
-                document.getElementById('resultado').innerHTML = "Nada..."
-            }
-        }
-</script>
-<script>
-    
-    var dragMe = document.getElementById("calcdrag"),
-        dragOfX = 0,
-        dragOfY = 0;
-    
-function dragStart(e) {
-    dragOfX = e.pageX - dragMe.offsetLeft;
-    dragOfY = e.pageY - dragMe.offsetTop;
-    
-    addEventListener("mousemove", dragMove);
-    addEventListener("mouseup", dragEnd);
-}
-    
-function dragMove(e) {
-    /* atualiza a posição do elemento */
-    dragMe.style.left = (e.pageX - dragOfX) + 'px';
-    dragMe.style.top = (e.pageY - dragOfY) + 'px';
-}
-    
-function dragEnd() {
-    removeEventListener("mousemove", dragMove);
-    removeEventListener("mouseup", dragEnd);
-}
-dragMe.addEventListener("mousedown", dragStart);
-</script>
+            <h2 class="text-center">Contatos</h2>
+
+                <p class="text-center">
+                 <a target="_blank" href="https://github.com/eracliogabriel">
+                     <button class="btn btn-default"><i class="fab fa-github"></i> GitHub</button>
+                     </a>
+                        <a target="_blank" href="mailto:lopes.biel@hotmail.com">
+                     <button class="btn btn-primary"><i class="glyphicon glyphicon-envelope"></i> E-mail</button>
+                     </a>
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=5561999655092&text=Ol%C3%A1!">
+                     <button class="btn btn-success"><i class="fab fa-whatsapp"></i> Whatsapp</button>
+                 </a>
+                </p>
+
+                
+            </div>
 
 </body>
 </html>
