@@ -81,6 +81,10 @@ body {
     color: #141414;
     text-shadow: 2px 2px 1px #bcf5ff
   }
+  .centered {
+    margin: 0 auto !important;
+    width: 40%;
+}
   
   
  
