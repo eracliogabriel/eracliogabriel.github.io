@@ -33,7 +33,7 @@
         .botao:hover{
             background-color: black;
         }
-        #resultado{
+        #display{
             background-color: rgb(236, 236, 236);
             width: 207px;
             height: 30px;
