@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="search-box">
+            <input type="text" placeholder="Digite o nome da cidade..." id="city-input">
+            <button id="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div class="weather-box">
+            <div class="weather-info">
+                <img src="" alt="Weather Icon" id="weather-icon">
+                <h2 id="city">Cidade</h2>
+                <div class="temperature">
+                    <span id="temp">0</span>°C
+                </div>
+                <p id="description">Descrição</p>
+            </div>
+            <div class="weather-details">
+                <div class="detail">
+                    <i class="fas fa-temperature-high"></i>
+                    <div>
+                        <span id="feels-like">0</span>°C
+                        <p>Sensação</p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <i class="fas fa-water"></i>
+                    <div>
+                        <span id="humidity">0</span>%
+                        <p>Umidade</p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <i class="fas fa-wind"></i>
+                    <div>
+                        <span id="wind-speed">0</span> km/h
+                        <p>Vento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

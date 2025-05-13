@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.game-info {
+    margin-bottom: 2rem;
+}
+
+.game-info h1 {
+    color: #1a2a6c;
+    margin-bottom: 1rem;
+}
+
+.score-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.score, .high-score {
+    background: #f7fafc;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#start-btn, #restart-btn {
+    background: #1a2a6c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#start-btn:hover, #restart-btn:hover {
+    background: #b21f1f;
+}
+
+#restart-btn {
+    background: #b21f1f;
+    display: none;
+}
+
+#restart-btn:hover {
+    background: #1a2a6c;
+}
+
+#game-board {
+    background: #1a2a6c;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.horizontal-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.controls button {
+    background: #1a2a6c;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.controls button:hover {
+    background: #b21f1f;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .score-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .buttons-container {
+        flex-direction: column;
+    }
+} 

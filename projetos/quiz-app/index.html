@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #00416A, #E4E5E6);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .start-screen {
+            text-align: center;
+        }
+
+        .start-screen h1 {
+            color: #00416A;
+            margin-bottom: 1rem;
+        }
+
+        .start-screen p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        #start-btn {
+            background: #00416A;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        #start-btn:hover {
+            background: #002b4a;
+        }
+
+        .quiz-container {
+            display: none;
+        }
+
+        .quiz-container.active {
+            display: block;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00416A;
+        }
+
+        .timer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .time-text {
+            color: #666;
+        }
+
+        .time-sec {
+            background: #00416A;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.3rem;
+        }
+
+        .section {
+            margin-bottom: 1rem;
+        }
+
+        .que_text {
+            font-size: 1.1rem;
+            color: #00416A;
+            margin-bottom: 1rem;
+        }
+
+        .option_list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .option {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #e2e8f0;
+        }
+
+        .option.correct {
+            background: #48bb78;
+            color: white;
+        }
+
+        .option.incorrect {
+            background: #f56565;
+            color: white;
+        }
+
+        .option.disabled {
+            pointer-events: none;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .total_que {
+            color: #666;
+        }
+
+        .next_btn {
+            background: #00416A;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: none;
+        }
+
+        .next_btn.show {
+            display: block;
+        }
+
+        .next_btn:hover {
+            background: #002b4a;
+        }
+
+        .result-box {
+            display: none;
+            text-align: center;
+        }
+
+        .result-box.active {
+            display: block;
+        }
+
+        .icon {
+            font-size: 4rem;
+            color: #00416A;
+            margin-bottom: 1rem;
+        }
+
+        .complete-text {
+            font-size: 1.2rem;
+            color: #00416A;
+            margin-bottom: 1rem;
+        }
+
+        .score_text {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .buttons button {
+            background: #00416A;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .buttons button:hover {
+            background: #002b4a;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="start-screen">
+            <h1>Quiz de Conhecimentos Gerais</h1>
+            <p>Teste seus conhecimentos com perguntas sobre diversos temas!</p>
+            <button id="start-btn">Iniciar Quiz</button>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="header">
+                <div class="title">Quiz de Conhecimentos Gerais</div>
+                <div class="timer">
+                    <div class="time-text">Tempo Restante</div>
+                    <div class="time-sec">30</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="que_text">
+                    <!-- Pergunta será inserida aqui -->
+                </div>
+                <div class="option_list">
+                    <!-- Opções serão inseridas aqui -->
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div class="total_que">
+                    <!-- Contador de questões será inserido aqui -->
+                </div>
+                <button class="next_btn">Próxima Questão</button>
+            </div>
+        </div>
+        
+        <div class="result-box">
+            <div class="icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="complete-text">Você completou o Quiz!</div>
+            <div class="score_text">
+                <!-- Pontuação será inserida aqui -->
+            </div>
+            <div class="buttons">
+                <button class="restart">Reiniciar Quiz</button>
+                <button class="quit">Sair</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Elementos do DOM
+        const startScreen = document.querySelector('.start-screen');
+        const quizContainer = document.querySelector('.quiz-container');
+        const resultBox = document.querySelector('.result-box');
+        const startBtn = document.getElementById('start-btn');
+        const nextBtn = document.querySelector('.next_btn');
+        const queText = document.querySelector('.que_text');
+        const optionList = document.querySelector('.option_list');
+        const totalQue = document.querySelector('.total_que');
+        const timeText = document.querySelector('.time-text');
+        const timeSec = document.querySelector('.time-sec');
+        const scoreText = document.querySelector('.score_text');
+        const restartBtn = document.querySelector('.restart');
+        const quitBtn = document.querySelector('.quit');
+
+        // Variáveis do jogo
+        let queCount = 0;
+        let queNumb = 1;
+        let userScore = 0;
+        let counter;
+        let timeValue = 30;
+        let timer;
+
+        // Banco de questões
+        const questions = [
+            {
+                numb: 1,
+                question: "Qual é a capital do Brasil?",
+                answer: "Brasília",
+                options: [
+                    "São Paulo",
+                    "Rio de Janeiro",
+                    "Brasília",
+                    "Salvador"
+                ]
+            },
+            {
+                numb: 2,
+                question: "Qual é o maior planeta do sistema solar?",
+                answer: "Júpiter",
+                options: [
+                    "Saturno",
+                    "Júpiter",
+                    "Urano",
+                    "Netuno"
+                ]
+            },
+            {
+                numb: 3,
+                question: "Quem pintou a Mona Lisa?",
+                answer: "Leonardo da Vinci",
+                options: [
+                    "Pablo Picasso",
+                    "Vincent van Gogh",
+                    "Leonardo da Vinci",
+                    "Michelangelo"
+                ]
+            },
+            {
+                numb: 4,
+                question: "Qual é o elemento químico mais abundante no universo?",
+                answer: "Hidrogênio",
+                options: [
+                    "Oxigênio",
+                    "Carbono",
+                    "Hidrogênio",
+                    "Hélio"
+                ]
+            },
+            {
+                numb: 5,
+                question: "Em que ano foi a primeira Copa do Mundo de futebol?",
+                answer: "1930",
+                options: [
+                    "1930",
+                    "1950",
+                    "1962",
+                    "1970"
+                ]
+            }
+        ];
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM carregado");
+        });
+
+        // Iniciar Quiz
+        startBtn.addEventListener('click', () => {
+            console.log("Botão de início clicado");
+            startScreen.style.display = 'none';
+            quizContainer.classList.add('active');
+            showQuestions(0);
+            queCounter(1);
+            startTimer(30);
+        });
+
+        // Próxima questão
+        nextBtn.addEventListener('click', () => {
+            if (queCount < questions.length - 1) {
+                queCount++;
+                queNumb++;
+                showQuestions(queCount);
+                queCounter(queNumb);
+                clearInterval(counter);
+                startTimer(timeValue);
+                nextBtn.classList.remove("show");
+            } else {
+                clearInterval(counter);
+                showResult();
+            }
+        });
+
+        // Mostrar questões
+        function showQuestions(index) {
+            const queData = questions[index];
+            queText.innerHTML = queData.question;
+            
+            let optionTag = '';
+            for (let i = 0; i < queData.options.length; i++) {
+                optionTag += `<div class="option" data-index="${i}">${queData.options[i]}</div>`;
+            }
+            optionList.innerHTML = optionTag;
+            
+            // Adicionar event listeners para as opções
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    optionSelected(this);
+                });
+            });
+        }
+
+        // Seleção de opção
+        function optionSelected(answer) {
+            clearInterval(counter);
+            let userAns = answer.textContent;
+            let correctAns = questions[queCount].answer;
+            const allOptions = optionList.children.length;
+            
+            if (userAns == correctAns) {
+                userScore += 1;
+                answer.classList.add("correct");
+            } else {
+                answer.classList.add("incorrect");
+                for (let i = 0; i < allOptions; i++) {
+                    if (optionList.children[i].textContent == correctAns) {
+                        optionList.children[i].classList.add("correct");
+                    }
+                }
+            }
+            
+            for (let i = 0; i < allOptions; i++) {
+                optionList.children[i].classList.add("disabled");
+            }
+            nextBtn.classList.add("show");
+        }
+
+        // Contador de questões
+        function queCounter(index) {
+            const totalQueCounTag = `<span><p>${index}</p> de <p>${questions.length}</p> Questões</span>`;
+            totalQue.innerHTML = totalQueCounTag;
+        }
+
+        // Timer
+        function startTimer(time) {
+            counter = setInterval(timer, 1000);
+            function timer() {
+                timeSec.textContent = time;
+                time--;
+                if (time < 0) {
+                    clearInterval(counter);
+                    const allOptions = optionList.children.length;
+                    let correctAns = questions[queCount].answer;
+                    for (let i = 0; i < allOptions; i++) {
+                        if (optionList.children[i].textContent == correctAns) {
+                            optionList.children[i].classList.add("correct");
+                        }
+                        optionList.children[i].classList.add("disabled");
+                    }
+                    nextBtn.classList.add("show");
+                }
+            }
+        }
+
+        // Mostrar resultado
+        function showResult() {
+            startScreen.style.display = 'none';
+            quizContainer.classList.remove("active");
+            resultBox.classList.add("active");
+            const scorePercentage = (userScore / questions.length) * 100;
+            scoreText.innerHTML = `<span>Você acertou <p>${userScore}</p> de <p>${questions.length}</p> questões</span>`;
+        }
+
+        // Reiniciar Quiz
+        restartBtn.addEventListener('click', () => {
+            startScreen.style.display = 'block';
+            quizContainer.classList.remove("active");
+            resultBox.classList.remove("active");
+            queCount = 0;
+            queNumb = 1;
+            userScore = 0;
+            showQuestions(queCount);
+            queCounter(queNumb);
+            nextBtn.classList.remove("show");
+        });
+
+        // Sair do Quiz
+        quitBtn.addEventListener('click', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html> 
