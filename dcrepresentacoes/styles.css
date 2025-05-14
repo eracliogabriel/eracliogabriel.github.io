@@ -790,8 +790,11 @@ body {
     }
 
     .partner-logo {
-        width: 120px;
-        height: 60px;
+        width: 240px;
+        height: 180px;
+    }
+    .partner-logo img {
+        filter: brightness(1.25);
     }
 }
 
@@ -1210,6 +1213,10 @@ body {
     
     .product-image {
         height: 200px;
+    }
+
+    .product-image img {
+        filter: brightness(1.25);
     }
 }
 
@@ -1685,4 +1692,26 @@ body {
         font-size: 1rem;
         padding: 0.8rem 1rem;
     }
-} 
+}
+
+// Controle da Galeria
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryOverlay = document.querySelector('.gallery-overlay');
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    const galleryDots = document.querySelectorAll('.gallery-dot');
+    const prevButton = document.querySelector('.gallery-prev');
+    const nextButton = document.querySelector('.gallery-next');
+    const closeButton = document.querySelector('.gallery-close');
+    let currentImageIndex = 0;
+
+    // Abrir galeria ao clicar na imagem do parafuso
+    const parafusoImage = document.querySelector('.product-image[data-gallery="parafusos"]');
+    if (parafusoImage) {
+        parafusoImage.addEventListener('click', function() {
+            galleryOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // ...restante do código...
+}); 
