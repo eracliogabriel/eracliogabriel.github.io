@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Navegação entre imagens
+    // NavegaÃ§Ã£o entre imagens
     function showImage(index) {
         galleryImages.forEach(img => img.classList.remove('active'));
         galleryDots.forEach(dot => dot.classList.remove('active'));
@@ -50,12 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Navegação pelos dots
+    // NavegaÃ§Ã£o pelos dots
     galleryDots.forEach((dot, index) => {
         dot.addEventListener('click', () => showImage(index));
     });
 
-    // Navegação por teclado
+    // NavegaÃ§Ã£o por teclado
     document.addEventListener('keydown', function(e) {
         if (!galleryOverlay || !galleryOverlay.classList.contains('active')) return;
         if (e.key === 'ArrowLeft' && prevButton) {
@@ -68,11 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Função utilitária para posicionar o menu para cima se não houver espaço
+// FunÃ§Ã£o utilitÃ¡ria para posicionar o menu para cima se nÃ£o houver espaÃ§o
 function posicionarMenu(menu, trigger) {
     // Remove classe top antes de calcular
     menu.classList.remove('top');
-    // Torna o menu visível mas transparente para medir
+    // Torna o menu visÃ­vel mas transparente para medir
     menu.style.visibility = 'hidden';
     menu.style.display = 'flex';
     menu.style.opacity = '0';
@@ -89,7 +89,7 @@ function posicionarMenu(menu, trigger) {
     menu.style.opacity = '';
 }
 
-// Função para abrir o modal de opções
+// FunÃ§Ã£o para abrir o modal de opÃ§Ãµes
 function abrirModalOpcoes(tipo, valor) {
     const modal = document.getElementById('modal-opcoes');
     const btnCopiar = document.getElementById('modal-copiar');
@@ -102,14 +102,14 @@ function abrirModalOpcoes(tipo, valor) {
     const btnCopiarNovo = document.getElementById('modal-copiar');
     const btnAbrirNovo = document.getElementById('modal-abrir');
     const btnFecharNovo = document.getElementById('modal-fechar');
-    // Define textos e ações
+    // Define textos e aÃ§Ãµes
     if (tipo === 'whatsapp') {
-        btnCopiarNovo.textContent = 'Copiar número';
+        btnCopiarNovo.textContent = 'Copiar nÃºmero';
         btnAbrirNovo.textContent = 'Abrir no WhatsApp';
         btnCopiarNovo.onclick = function() {
             navigator.clipboard.writeText('+' + '55' + valor);
             fecharModalOpcoes();
-            mostrarModalCopiado('Número copiado para a área de transferência');
+            mostrarModalCopiado('NÃºmero copiado para a Ã¡rea de transferÃªncia');
         };
         btnAbrirNovo.onclick = function() {
             const mensagem = encodeURIComponent('Tenho interesse em saber mais sobre a DC.');
@@ -123,7 +123,7 @@ function abrirModalOpcoes(tipo, valor) {
         btnCopiarNovo.onclick = function() {
             navigator.clipboard.writeText(valor);
             fecharModalOpcoes();
-            mostrarModalCopiado('E-mail copiado para a área de transferência');
+            mostrarModalCopiado('E-mail copiado para a Ã¡rea de transferÃªncia');
         };
         btnAbrirNovo.onclick = function() {
             window.open('mailto:' + valor, '_blank');
@@ -151,7 +151,7 @@ function mostrarModalCopiado(msg) {
         modal.classList.add('active');
         setTimeout(() => {
             modal.classList.remove('active');
-            modal.textContent = 'Número copiado para a área de transferência';
+            modal.textContent = 'NÃºmero copiado para a Ã¡rea de transferÃªncia';
         }, 1500);
     }
 }
